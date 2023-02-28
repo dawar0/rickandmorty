@@ -111,7 +111,7 @@ export default function FilterMenu() {
             </Button>
           </ListItem>
           {Object.keys(filters).map((filter) => (
-            <React.Component key={filter}>
+            <React.Fragment key={filter}>
               <li>
                 <ListSubheader
                   sx={{
@@ -151,7 +151,7 @@ export default function FilterMenu() {
                   </ListItem>
                 ))}
               </li>
-            </React.Component>
+            </React.Fragment>
           ))}
         </List>
       </Popover>
