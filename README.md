@@ -10,7 +10,7 @@ This is a simple app that shows the characters of the Rick and Morty series. It 
 
 In the project directory, you can run:
 
-### `npm install --legacy-peer-deps`
+### `npm install `
 
 Installs all the dependencies of the project.
 
@@ -25,7 +25,6 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm build`
 
