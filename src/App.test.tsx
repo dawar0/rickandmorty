@@ -1,9 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import "jest-canvas-mock";
+import { screen } from "@testing-library/react";
+import App from "./App";
+import { renderWithProviders } from "./util/testUtils";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("app renders", async () => {
+  renderWithProviders(<App />);
 });
