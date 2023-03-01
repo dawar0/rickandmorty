@@ -53,10 +53,7 @@ export default function SearchCharacterList() {
       next={getMoreCharacters}
       hasMore={showFavorites ? false : data?.characters.info.next !== null}
       loader={<Spinner />}
-      endMessage={
-        data?.characters.results.length !==
-        <PaginationMessage message={"Yay! You have seen it all."} />
-      }
+      endMessage={<PaginationMessage message={"Yay! You have seen it all."} />}
     >
       <Container
         sx={{
