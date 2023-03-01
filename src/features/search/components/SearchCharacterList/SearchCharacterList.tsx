@@ -82,9 +82,15 @@ export default function SearchCharacterList() {
               aria-label="toggle favorites"
             >
               {showFavorites ? (
-                <SummerIcon height={!matches ? 60 : 50} />
+                <SummerIcon
+                  height={!matches ? 60 : 50}
+                  width={!matches ? 60 : 50}
+                />
               ) : (
-                <MortyIcon height={!matches ? 60 : 50} />
+                <MortyIcon
+                  height={!matches ? 60 : 50}
+                  width={!matches ? 60 : 50}
+                />
               )}
             </Box>
             <FilterMenu />
