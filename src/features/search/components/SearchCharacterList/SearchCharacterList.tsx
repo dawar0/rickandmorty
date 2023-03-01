@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
 
 import { AnimatePresence } from "framer-motion";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import SearchCharacter from "../SearchCharacter/SearchCharacter";
@@ -29,7 +29,8 @@ export default function SearchCharacterList() {
   const { favoriteCharacters } = useSelector(
     (state: RootState) => state.favoriteCharacters
   );
-
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("sm"));
   const [showFavorites, setShowFavorites] = useState<boolean>(false);
   const toggleFavorites = () => setShowFavorites((prev: boolean) => !prev);
 
@@ -80,7 +81,11 @@ export default function SearchCharacterList() {
               }}
               aria-label="toggle favorites"
             >
-              {showFavorites ? <SummerIcon /> : <MortyIcon />}
+              {showFavorites ? (
+                <SummerIcon height={!matches ? 60 : 50} />
+              ) : (
+                <MortyIcon height={!matches ? 60 : 50} />
+              )}
             </Box>
             <FilterMenu />
           </Grid>

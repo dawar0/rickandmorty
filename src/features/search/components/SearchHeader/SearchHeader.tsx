@@ -51,7 +51,7 @@ export default function Header() {
         WebkitBackdropFilter: "blur(10px)",
         zIndex: 100,
         marginBottom: 20,
-        height: 100,
+        height: !matches ? 100 : 50,
       }}
     >
       <Container
@@ -66,7 +66,7 @@ export default function Header() {
           <h1
             style={{
               width: 200,
-              height: 100,
+              height: !matches ? 100 : 50,
             }}
           >
             <RickAndMorty width={"100%"} height={"100%"} />

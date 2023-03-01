@@ -1,6 +1,12 @@
 import { Box, Typography } from "@mui/material";
 
-export default function MortyIcon({ width = 60 }: { width?: number }) {
+export default function MortyIcon({
+  width = 60,
+  height = 60,
+}: {
+  width?: number;
+  height?: number;
+}) {
   return (
     <Box
       sx={{

@@ -8,6 +8,8 @@ import {
   Popover,
   Radio,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
@@ -49,6 +51,8 @@ export default function FilterMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   return (
     <>
@@ -64,8 +68,8 @@ export default function FilterMenu() {
         <img
           alt="Rick and Morty"
           src={plumbus}
-          width={60}
-          height={60}
+          width={matches ? 60 : 50}
+          height={matches ? 60 : 50}
           title="Filter"
           aria-label="Filter"
           onClick={handleClick}
