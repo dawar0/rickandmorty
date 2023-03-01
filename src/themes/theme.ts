@@ -18,6 +18,20 @@ export const getTheme = (): ThemeOptions => ({
         },
       },
     },
+    MuiPopover: {
+      styleOverrides: {
+        root: {
+          "& ::-webkit-scrollbar": {
+            width: "5px",
+            background: "transparent",
+          },
+          "& ::-webkit-scrollbar-thumb": {
+            background: "rgba(127,127,127,0.4)",
+            borderRadius: "10px",
+          },
+        },
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {

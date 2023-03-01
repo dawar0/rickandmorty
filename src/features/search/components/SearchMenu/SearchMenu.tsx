@@ -91,6 +91,7 @@ export default function FilterMenu() {
         }}
         sx={{
           maxHeight: "500px",
+          margin: "10px",
         }}
       >
         <List

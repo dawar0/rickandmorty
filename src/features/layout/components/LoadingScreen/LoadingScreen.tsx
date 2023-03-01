@@ -5,10 +5,20 @@ export default function SearchLoading() {
   return (
     <Container>
       <Box
-        sx={{ display: "grid", placeItems: "center", height: "90vh" }}
+        sx={{
+          display: "grid",
+          placeItems: "center",
+          height: "90vh",
+        }}
         aria-label="loading"
       >
-        <Lottie animationData={morty_loading} loop />
+        <Lottie
+          animationData={morty_loading}
+          loop
+          style={{
+            width: 300,
+          }}
+        />
       </Box>
     </Container>
   );

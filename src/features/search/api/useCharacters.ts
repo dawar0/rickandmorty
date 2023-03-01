@@ -2,7 +2,6 @@ import { useLazyQuery } from "@apollo/client";
 import { useDeferredValue, useEffect } from "react";
 import { Filters } from "../type";
 import { GET_CHARACTERS } from "./Queries";
-import _ from "lodash";
 
 export default function useCharacters({
   search,
@@ -51,6 +50,6 @@ export default function useCharacters({
     setShowFavorites(false);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }, [deferredSearch, selectedFilters, GetCharacters]);
+  }, [deferredSearch, selectedFilters, GetCharacters, setShowFavorites]);
   return { data, loading, error, getMoreCharacters };
 }

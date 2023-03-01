@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Character } from "../../type";
 import { RootState } from "../../../../store/store";
-import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
 import { updateIsSelected } from "../../slices/searchInputSlice";
 
 import {
@@ -13,6 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import LikeButton from "../SearchLikeButton/SearchLikeButton";
 
 export default function SearchCharacterDetails({
   character,
@@ -29,6 +29,13 @@ export default function SearchCharacterDetails({
   };
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const handleLike = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    dispatch({
+      type: "favoriteCharacters/toggleFavoriteCharacter",
+      payload: character,
+    });
+  };
 
   return (
     <Dialog open={!!character} onClose={handleClose} fullWidth>
@@ -68,23 +75,14 @@ export default function SearchCharacterDetails({
               }}
             >
               <Typography variant="h5">{character?.name}</Typography>
-              <Box
-                onClick={(e) => {
-                  e.stopPropagation();
-                  dispatch({
-                    type: "favoriteCharacters/toggleFavoriteCharacter",
-                    payload: character,
-                  });
-                }}
-              >
-                {favoriteCharacters.find(
-                  (favoriteCharacter) => favoriteCharacter.id === character.id
-                ) ? (
-                  <Favorite color="success" fontSize="small" />
-                ) : (
-                  <FavoriteBorderOutlined color="success" fontSize="small" />
-                )}
-              </Box>
+              <LikeButton
+                liked={
+                  !!favoriteCharacters.find(
+                    (favoriteCharacter) => favoriteCharacter.id === character.id
+                  )
+                }
+                handleClick={handleLike}
+              />
             </Box>
             <Box
               sx={{

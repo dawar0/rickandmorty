@@ -1,10 +1,10 @@
-import { Favorite, FavoriteBorderOutlined } from "@mui/icons-material";
 import { Box, Card, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
 import { Character } from "../../type";
 import { updateIsSelected } from "../../slices/searchInputSlice";
 import { motion } from "framer-motion";
+import LikeButton from "../SearchLikeButton/SearchLikeButton";
 
 export default function SearchCharacter({
   character,
@@ -17,6 +17,13 @@ export default function SearchCharacter({
     (state: RootState) => state.favoriteCharacters
   );
 
+  const handleLike = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.stopPropagation();
+    dispatch({
+      type: "favoriteCharacters/toggleFavoriteCharacter",
+      payload: character,
+    });
+  };
   return (
     <Grid
       item
@@ -64,23 +71,14 @@ export default function SearchCharacter({
             }}
           >
             <Typography variant="h6">{character.name}</Typography>
-            <Box
-              onClick={(e) => {
-                e.stopPropagation();
-                dispatch({
-                  type: "favoriteCharacters/toggleFavoriteCharacter",
-                  payload: character,
-                });
-              }}
-            >
-              {favoriteCharacters.find(
-                (favoriteCharacter) => favoriteCharacter.id === character.id
-              ) ? (
-                <Favorite color="success" fontSize="small" />
-              ) : (
-                <FavoriteBorderOutlined color="success" fontSize="small" />
-              )}
-            </Box>
+            <LikeButton
+              liked={
+                !!favoriteCharacters.find(
+                  (favoriteCharacter) => favoriteCharacter.id === character.id
+                )
+              }
+              handleClick={handleLike}
+            />
           </Box>
           <Box
             sx={{

@@ -1,12 +1,18 @@
 import { StyledEngineProvider } from "@mui/material/styles";
 import { Provider } from "react-redux";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  HttpLink,
+} from "@apollo/client";
 import ThemeApp from "./themeProvider";
 import { setupStore } from "../store/store";
+import fetch from "cross-fetch";
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   const client = new ApolloClient({
-    uri: "https://rickandmortyapi.com/graphql",
+    link: new HttpLink({ uri: "https://rickandmortyapi.com/graphql", fetch }),
     cache: new InMemoryCache({
       typePolicies: {
         Characters: {
