@@ -32,7 +32,6 @@ export default function FilterMenu() {
       "Cronenberg",
       "Disease",
       "Parasite",
-      "Vampire",
       "unknown",
     ],
     gender: ["female", "male", "genderless", "unknown"],

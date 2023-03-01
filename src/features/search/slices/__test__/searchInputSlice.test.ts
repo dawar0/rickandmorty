@@ -20,7 +20,6 @@ describe("searchInputSlice", () => {
         | "Cronenberg"
         | "Disease"
         | "Parasite"
-        | "Vampire"
         | "unknown"
         | "",
       gender: "" as "male" | "female" | "genderless" | "unknown" | "",

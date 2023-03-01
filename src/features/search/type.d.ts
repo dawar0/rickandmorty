@@ -11,7 +11,6 @@ export interface Filters {
     | "Cronenberg"
     | "Disease"
     | "Parasite"
-    | "Vampire"
     | "unknown"
     | "";
   gender: "male" | "female" | "genderless" | "unknown" | "";
